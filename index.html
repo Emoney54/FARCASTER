@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mammouth Céleste • Mini App Farcaster</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- SDK Farcaster Mini App -->
+  <script type="module">
+    import { sdk } from 'https://esm.sh/@farcaster/miniapp-sdk';
+
+    // Rendre le SDK dispo globalement pour app.js
+    window.farcasterSDK = sdk;
+
+    async function boot() {
+      try {
+        // obligatoire pour signaler "l'app est prête" au client Farcaster
+        await sdk.actions.ready();
+      } catch (err) {
+        console.warn('SDK pas dispo (hors Farcaster ou dev local):', err);
+      }
+
+      // lance notre logique app.js
+      if (window.initMiniApp) {
+        window.initMiniApp();
+      }
+    }
+
+    // on démarre
+    boot();
+  </script>
+</head>
+
+<body class="theme-bg">
+  <div class="app-shell card">
+
+    <!-- HEADER / USER -->
+    <header class="header">
+      <div class="header-top">
+        <div class="app-title">
+          <div class="mammouth-logo">🐘</div>
+          <div>
+            <h1 class="title-text">Mammouth Céleste</h1>
+            <p class="subtitle-text">Mini App Farcaster</p>
+          </div>
+        </div>
+
+        <div class="user-box" id="user-box">
+          <div class="user-info">
+            <div class="user-name" id="user-name">Invité</div>
+            <div class="user-id" id="user-id">Non connecté</div>
+          </div>
+          <button class="btn btn-small btn-outline" id="btn-connect-user">
+            Se connecter
+          </button>
+        </div>
+      </div>
+
+      <div class="header-hint" id="env-hint">
+        Vérification de l'environnement Farcaster...
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- SECTION GM STREAK -->
+      <section class="block">
+        <div class="block-head">
+          <div>
+            <h2 class="block-title">🔥 GM Streak</h2>
+            <p class="block-desc">Dis "GM" chaque jour pour garder ta série vivante.</p>
+          </div>
+          <div class="streak-chip" id="streak-chip">
+            <span id="streak-count">0</span> jours
+          </div>
+        </div>
+
+        <div class="gm-zone">
+          <div class="gm-display">
+            <div class="gm-number" id="gm-today-status">-</div>
+            <div class="gm-label">GM du jour</div>
+          </div>
+
+          <button class="btn btn-primary btn-big" id="btn-send-gm">
+            GM ✨
+          </button>
+        </div>
+
+        <div class="note" id="gm-note">
+          Tu n'as pas encore envoyé ton GM aujourd'hui.
+        </div>
+      </section>
+
+      <!-- SECTION VOTE / POLL -->
+      <section class="block">
+        <div class="block-head">
+          <div>
+            <h2 class="block-title">🗳️ Vote rapide</h2>
+            <p class="block-desc" id="poll-question">
+              Est-ce que le Mammouth doit dominer le monde ?
+            </p>
+          </div>
+          <button class="btn btn-outline btn-small" id="btn-reset-poll">
+            Reset vote
+          </button>
+        </div>
+
+        <div class="poll-options">
+          <button class="btn btn-yes" data-vote="yes">Oui ✅</button>
+          <button class="btn btn-no" data-vote="no">Non ❌</button>
+        </div>
+
+        <div class="poll-results">
+          <div class="poll-row">
+            <div class="poll-label">Oui</div>
+            <div class="poll-bar-wrap">
+              <div class="poll-bar poll-bar-yes" id="bar-yes" style="width:0%"></div>
+            </div>
+            <div class="poll-pct" id="pct-yes">0%</div>
+          </div>
+
+          <div class="poll-row">
+            <div class="poll-label">Non</div>
+            <div class="poll-bar-wrap">
+              <div class="poll-bar poll-bar-no" id="bar-no" style="width:0%"></div>
+            </div>
+            <div class="poll-pct" id="pct-no">0%</div>
+          </div>
+
+          <div class="poll-meta" id="poll-meta">0 votes total</div>
+        </div>
+      </section>
+
+      <!-- SECTION WALLET -->
+      <section class="block">
+        <div class="block-head">
+          <div>
+            <h2 class="block-title">💼 Wallet</h2>
+            <p class="block-desc">Connecte ton wallet Farcaster / Warpcast ou MetaMask (fallback navigateur).</p>
+          </div>
+        </div>
+
+        <div class="wallet-box" id="wallet-box">
+          <div class="wallet-address" id="wallet-address">
+            Aucun wallet connecté
+          </div>
+          <button class="btn btn-secondary" id="btn-connect-wallet">
+            Connecter le wallet
+          </button>
+        </div>
+
+        <div class="note">
+          On ne signe / n’envoie rien tout seul. On affiche juste l’adresse.
+        </div>
+      </section>
+
+      <!-- LOGS DEV -->
+      <section class="block">
+        <div class="block-head">
+          <div>
+            <h2 class="block-title">📝 Logs</h2>
+            <p class="block-desc">Debug temps réel (utile quand tu testeras dans Farcaster).</p>
+          </div>
+          <button class="btn btn-outline btn-small" id="btn-clear-log">
+            Clear
+          </button>
+        </div>
+
+        <div class="log-box" id="log-box">
+          <div class="log-line">App démarrée…</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>🐘 Mammouth Céleste • Farcaster Mini App</div>
+      <div class="footer-small">prototype local • v0.1</div>
+    </footer>
+  </div>
+
+  <!-- ton JS -->
+  <script src="app.js"></script>
+</body>
+</html>

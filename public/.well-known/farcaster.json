@@ -1,0 +1,24 @@
+{
+    "accountAssociation": {
+      "header": "eyJmaWQiOjY1MjE5NywidHlwZSI6ImF1dGgiLCJrZXkiOiIweDJiMjAzM0M5OTVBQjhjNTQzRTAxMmZDNDU2YTgzN2JhQTkwRDVkMWYifQ",
+      "payload": "eyJkb21haW4iOiJmYXItczRlYS52ZXJjZWwuYXBwIn0",
+      "signature": "IIn73d37EbGfb2XBsDDQM4DmVOXyT02mrAiD01UYVrgv0BKVoWG9t0mgFAX3dLyaUsKTihwETrEJHW5NLRd0wxw="
+    },
+    "miniapp": {
+      "version": "1",
+      "name": "Mammouth Céleste",
+      "iconUrl": "https://far-t3ea.vercel.app/icon.png",
+      "splashImageUrl": "https://far-t3ea.vercel.app/splash.png",
+      "splashBackgroundColor": "#657457",
+      "homeUrl": "https://far-t3ea.vercel.app/",
+      "subtitle": "Outil Farcaster mystique",
+      "description": "Une mini-app Web3 modulaire et cosmique.",
+      "primaryCategory": "utility",
+      "tags": ["mammouth", "celeste", "farcaster", "web3"],
+      "tagline": "Le Mammouth s’éveille.",
+      "ogTitle": "Mammouth Céleste",
+      "ogDescription": "Explore l’univers modulaire de la mini-app Mammouth Céleste.",
+      "ogImageUrl": "https://far-t3ea.vercel.app/og.png"
+    }
+  }
+  

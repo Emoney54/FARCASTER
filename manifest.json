@@ -1,0 +1,27 @@
+{
+    "accountAssociation": {
+      "header": "eyJmaWQiOjY1MjE5NywidHlwZSI6ImF1dGgiLCJrZXkiOiIweDJiMjAzM0M5OTVBQjhjNTQzRTAxMmZDNDU2YTgzN2JhQTkwRDVkMWYifQ",
+      "payload": "eyJkb21haW4iOiJmYXItdDNlYS52ZXJjZWwuYXBwIn0",
+      "signature": "XKBMNUFqsv12Mu2rSDy12CIVXyYrwPUf4NCnxKtZLwws1gYt/LO0yGveUrbeUr4cmE9w2DwwpKUdW9Jxs/36Sxs="
+    },
+    "miniapp": {
+    "version": "1",
+    "name": "Mammouth Céleste",
+    "iconUrl": "https://far-t3ea.vercel.app/icon.png",
+    "homeUrl": "https://far-t3ea.vercel.app/",
+    "splashImageUrl": "https://far-t3ea.vercel.app/splash.png",
+    "splashBackgroundColor": "#657457",
+    "subtitle": "Mini App Mammouth",
+    "description": "Une mini-app mystérieuse sur Farcaster",
+    "primaryCategory": "utility",
+    "tags": ["mammouth","farcaster","miniapp","web3"],
+    "tagline": "Rejoins l’aventure du Mammouth Céleste",
+    "ogTitle": "Mammouth Céleste – Mini App",
+    "ogDescription": "Découvre l’expérience Mammouth Céleste dans Farcaster",
+    "ogImageUrl": "https://far-t3ea.vercel.app/og-image.png",
+    "screenshotUrls": [
+      "https://far-t3ea.vercel.app/screenshot1.png",
+      "https://far-t3ea.vercel.app/screenshot2.png"
+    ]
+  }
+}
